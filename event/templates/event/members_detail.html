@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+{{members.Organiser_Name}}<br>
+{{members.memberName }}<br>
+{{members.contactNumber}}<br>
+{{members.relation}}<br>
+
+<hr>
+
+{% for guests in orgname %}
+    {{guests.memberName}}<br>
+{% endfor %}
+
+
+</body>
+</html>

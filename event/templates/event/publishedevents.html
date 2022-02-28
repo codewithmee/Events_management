@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body >
+<h2 align="center" > All Events</h2>
+     <table border="4" align="center" >
+        <thead>
+        <th> Eventname</th>
+        <th> Organiser </th>
+        <th> Guests </th>
+        <th> Event venue </th>
+        <th> Rooms </th>
+        <th> Details </th>
+        </thead>
+        <tbody>{% for event in publish %}
+        <tr>
+            <td>  {{event.Eventname}}</td>
+            <td> {{event.org_name}} </td>
+            <td> {{event.Esize}} </td>
+            <td> {{event.Evenue}}</td>
+            <td> {{event.Rooms}} </td>
+            <td>
+                <a href="{% url 'eventdetails' event.id %}">Eventdetails</a>
+                <a href="{% url 'eventupdate' event.id %}">Update Info</a>
+            </td>
+
+        </tr>
+           {% endfor %}
+        </tbody>
+    </table><br>
+<div align="center">
+        <a href="{% url 'profile' %}" >Back to Profile</a>
+        <a href="{% url 'create' %}">Add Event</a>
+</div>
+<hr>
+</body>
+</html>

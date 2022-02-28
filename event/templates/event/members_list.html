@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+</head>
+<body>
+<h2 align="center">Guest Details</h2>
+    <table border="4" align="center" >
+        <thead>
+            <th> Organiser Name</th>
+            <th> Member Name</th>
+            <th> Contact </th>
+            <th> Relation </th>
+            <th>Action</th>
+        </thead>
+        <tbody>{% for guest in orderby %}
+            <tr>
+                <td>  {{guest.Organiser_Name}}</td>
+                <td> {{guest.memberName}} </td>
+                <td> {{guest.contactNumber}} </td>
+                <td> {{guest.relation}}</td>
+                <td>
+                <a href="{% url 'guestdetails' guest.id %}">GuestDetails</a>
+                <a href="{% url 'guestupdate' guest.id %}">Update Info</a>
+            </td>
+
+        </tr>
+           {% endfor %}
+    </table>
+
+<div align="center">
+    <a href="{% url 'addguest' %}">Add Guest</a>
+    <a href="{% url 'logout' %}?next=/home/">logout</a>
+    <a href="{% url 'eventlist' %}">All Event List</a>
+</div>
+
+</body>
+</html>
